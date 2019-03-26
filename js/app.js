@@ -12,7 +12,7 @@ let rndQues = [
   'Has Roger ever participated in a cosplay event?',
   'Does Roger like yoga?',
   'Has Roger ever participated in a throwdown with Bobby Flay?',
-  'Has Roger evern been on TV?',
+  'Has Roger ever been on TV?',
   'Is Roger a good cook?',
   'Has Roger ever lived in a foreign country?',
   'Is Roger a natural born citizen of the USA?',
@@ -23,13 +23,21 @@ let rndAns = ['yes', 'no', 'yes', 'yes', 'no', 'no', 'yes', 'yes', 'yes', 'yes',
 let questUsed = ['no','no','no','no','no','no','no','no','no','no','no','no','no','no','no','no','no'];
 let userAnswer = [];
 let randomQuestion = '';
-let i = 0
 
-for (i = 0; i < 5; i++){
-        console.log('Loop number is: ' + i)
-        randomQuestion = Math.floor(Math.random() * (rndQues.length));
-        console.log('Random Number: ' + randomQuestion)
-        if (questUsed[randomQuestion] === 'no'){
-            userAnswer[i] = prompt(rndQues[randomQuestion]);
-        }
+for (let i = 0; i < 2; i++){
+  console.log('Loop number is: ' + i);
+  randomQuestion = Math.floor(Math.random() * (rndQues.length));
+  console.log('Random Number: ' + randomQuestion);
+  while  (questUsed[randomQuestion] === 'yes') {
+    randomQuestion = Math.floor(Math.random() * (rndQues.length));
+  }
+  questUsed[randomQuestion] = 'yes';
+  userAnswer[i] = prompt(rndQues[randomQuestion]);
+  console.log('Users Answer is: ' + userAnswer[i]);
+  if (userAnswer[i] === rndAns[randomQuestion]){
+    alert('You got that one correct!  Nice work.');
+  } else {
+    alert('Incorrect.  Feels Bad Man!');
+  }
 }
+
