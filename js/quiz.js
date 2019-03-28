@@ -27,6 +27,11 @@ const rndAns = ['yes', 'no', 'yes', 'yes', 'no', 'no', 'yes', 'yes', 'yes', 'no'
 let questUsed = ['no','no','no','no','no','no','no','no','no','no','no','no','no','no','no','no'];
 
 // Array for Question 7.  What is Rogers Highest Level of Education?
+const wifeName = ['m', 'i', 'c', 'h', 'a', 'e', 'l', 'a']
+
+let wifeNameHint = [];
+let userGuessWifeName = '';
+let userGuessWifeNameNumber = 6;
 let userAnswer = [];
 let randomQuestion = '';
 let totalRight = 0;
@@ -104,5 +109,39 @@ if ( guessChancesLeft < 1) {
   }
 }
 
-
-alert('You got ' + totalRight + ' answers correct');
+userGuessWifeName = prompt('Can you guess Roger\'s Wife\'s Name? \n * * * * * * * *');
+while (userGuessWifeNameNumber > 0) {
+  userGuessWifeNameNumber -= 1;
+  if (userGuessWifeName === wifeName) {
+    confirm('You got it.  Great job.');
+    totalRight += 1;
+    while (confirmButton === false) {
+      if (confirmButton) {
+        break;
+      } else {
+        confirmButton = confirm('Please Press Ok.');
+      }
+    }
+  }
+  else if (userGuessWifeNameNumber === 1) {
+    userGuessWifeName = prompt('Can you guess Roger\'s Wife\'s Name? \n * i * * * * * *');
+  }
+  else if (userGuessWifeNameNumber === 2) {
+    userGuessWifeName = prompt('Can you guess Roger\'s Wife\'s Name? \n * i * * * * * e');
+  }
+  else if (userGuessWifeNameNumber === 3) {
+    userGuessWifeName = prompt('Can you guess Roger\'s Wife\'s Name? \n * i * h * * * e');
+  }
+  else if (userGuessWifeNameNumber === 4) {
+    userGuessWifeName = prompt('Can you guess Roger\'s Wife\'s Name? \n * i * h * l * e');
+  }
+  else if (userGuessWifeNameNumber === 5) {
+    userGuessWifeName = prompt('Can you guess Roger\'s Wife\'s Name? \n * i * h * l l e');
+  }
+  else if (userGuessWifeNameNumber === 5) {
+    userGuessWifeName = prompt('Can you guess Roger\'s Wife\'s Name? \n * i c h * l l e');
+  } else {
+    alert('You were so close.  Her name is Michaela');
+  }
+}
+alert('You got ' + totalRight + ' answers correct out of 7');
