@@ -61,9 +61,10 @@ for (let i = 0; i < numberOfQuestions; i++){
     randomQuestion = Math.floor(Math.random() * (rndQues.length));
   }
   questUsed[randomQuestion] = 'yes';
-  userAnswer[i] = prompt(userName + ': ' + rndQues[randomQuestion]).toLocaleLowerCase();
-  normalizer(userAnswer[i]);
-  console.log('Users Answer is: ' + userAnswer[i]);
+
+  userAnswer[i] = normalizer(prompt(userName + ': ' + rndQues[randomQuestion]));
+
+
 
   // Nomralize inputs
   if (userAnswer[i].charAt(0) === rndAns[randomQuestion].charAt(0)){
@@ -153,11 +154,12 @@ while (userGuessWifeNameNumber > 0) {
 console.log('Number of questions: ' + originalNumberOfQuestions);
 alert('You got ' + totalRight + ' answers correct out of ' + (originalNumberOfQuestions + 2));
 
-// // Function to normalize (lowercase data)
-// function normalizer(toBeNormalized){
-//   return toBeNormalized.toLowerCase();
-// }
+// Function to normalize (lowercase data)
+function normalizer(toBeNormalized){
+  return toBeNormalized.toLowerCase();
+}
 
-// function randomizer (lowNumber, highNumber){
-//
-// }
+// Function to randomize
+function randomizer(lowNumber, highNumber){
+  return(Math.random(lowNumber, highNumber));
+}
