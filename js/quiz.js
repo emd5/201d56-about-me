@@ -53,7 +53,7 @@ for (let i = 0; i < numberOfQuestions; i++){
   randomQuestion = Math.floor(Math.random() * (rndQues.length));
   console.log('Random Number: ' + randomQuestion);
 
-  while  (questUsed[randomQuestion] === 'yes') {
+  while (questUsed[randomQuestion] === 'yes') {
     randomQuestion = Math.floor(Math.random() * (rndQues.length));
   }
   questUsed[randomQuestion] = 'yes';
@@ -113,14 +113,14 @@ if ( guessChancesLeft < 1) {
 let userGuessWifeName = prompt('Can you guess Roger\'s Wife\'s Name? \n She goes by 2 names starting with M');
 while (userGuessWifeNameNumber > 0) {
   console.log('User guess on wife name: ' + userGuessWifeName);
-  console.log('Names Used: ' + wifeName[0] + ' ' + wifeName[1])
+  console.log('Names Used: ' + wifeName[0] + ' ' + wifeName[1]);
   userGuessWifeNameNumber -= 1;
   if (userGuessWifeName === wifeName[0] || userGuess === wifeName[1]) {
     confirm('You got it.  Great job.');
     totalRight += 1;
-    break
+    break;
   } else {
-    userGuessWifeName = prompt('Try again! Can you guess Roger\'s Wife\'s Name?')
+    userGuessWifeName = prompt('Try again! Can you guess Roger\'s Wife\'s Name?');
   }
 }
 //   else if (userGuessWifeNameNumber === 1) {
