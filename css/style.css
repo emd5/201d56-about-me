@@ -41,12 +41,13 @@ body {
 }
 
 main {
-    padding-top:5%;
+    /* padding-top:5%; */
+    padding: 5em 5em 5em 5em;
     margin-bottom:5%;
 }
 
 h1 {
-    color: darkgray;
+    color: #333;
     font-size: 3em;
     mso-ansi-font-style: italic;
     text-align: center;
@@ -55,22 +56,28 @@ h1 {
 
 h2 {
     padding: 5px 20px;
-    color: darkgray;
+    color: #333;
     font-size: 2em;
     border: 1px solid black;
     text-align: center;
-
+    background: rgb(160, 156, 156);
 }
 
 p {
     font-size: 1em;
     color: black;
-    padding: 2px 20px;
+    padding: 6px 20px;
+    font-weight: bold;
+}
+
+a {
+    font-weight: bold;
+    color: green;
 }
 
 .text {
     font-size: .8em;
-    color: grey;
+    color: #2d2929;
     padding: 2px 25px;
 }
 
