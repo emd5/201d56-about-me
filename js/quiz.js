@@ -26,10 +26,11 @@ const rndAns = ['yes', 'no', 'yes', 'yes', 'no', 'no', 'yes', 'yes', 'yes', 'no'
 // Array to track displayed questions so duplicates do not get put on the screen.
 let questUsed = ['no','no','no','no','no','no','no','no','no','no','no','no','no','no','no','no'];
 
-// Array for Question 7.  What is Rogers Highest Level of Education?
+// Array for Question 7.  What is Rogers Highest Level of Education? Refactor later with game
 // const wifeName = ['m', 'i', 'c', 'h', 'a', 'e', 'l', 'a']
 const wifeName = ['michelle', 'michaela'];
 
+// Commented out for later use of refactor with question 7 game,
 // let wifeNameHint = [];
 // let userGuessWifeName = '';
 let userGuessWifeNameNumber = 6;
@@ -37,6 +38,7 @@ let userAnswer = [];
 let randomQuestion = '';
 let totalRight = 0;
 let numberOfQuestions = 5;
+const originalNumberOfQuestions = numberOfQuestions;
 let gameAnswer = Math.floor(Math.random() * 101);
 let numberOfGuesses = 0;
 let guessChances = 4;
@@ -47,8 +49,10 @@ let guessMessage = 'Lets Play a quick Guessing Game.';
 let confirmButton = false;
 
 
+// Default name if user enters nothing.  Need to add.
 let userName = prompt('Please enter your name');
 
+// Loop to go through the number of questions.
 for (let i = 0; i < numberOfQuestions; i++){
   randomQuestion = Math.floor(Math.random() * (rndQues.length));
   console.log('Random Number: ' + randomQuestion);
@@ -58,8 +62,10 @@ for (let i = 0; i < numberOfQuestions; i++){
   }
   questUsed[randomQuestion] = 'yes';
   userAnswer[i] = prompt(userName + ': ' + rndQues[randomQuestion]).toLocaleLowerCase();
+  normalizer(userAnswer[i]);
   console.log('Users Answer is: ' + userAnswer[i]);
 
+  // Nomralize inputs
   if (userAnswer[i].charAt(0) === rndAns[randomQuestion].charAt(0)){
     totalRight += 1;
     console.log('Total Right Answers: ' + totalRight);
@@ -144,4 +150,14 @@ while (userGuessWifeNameNumber > 0) {
 //     alert('You were so close.  Her name is Michaela');
 //   }
 // }
-alert('You got ' + totalRight + ' answers correct out of 7');
+console.log('Number of questions: ' + originalNumberOfQuestions);
+alert('You got ' + totalRight + ' answers correct out of ' + (originalNumberOfQuestions + 2));
+
+// // Function to normalize (lowercase data)
+// function normalizer(toBeNormalized){
+//   return toBeNormalized.toLowerCase();
+// }
+
+// function randomizer (lowNumber, highNumber){
+//
+// }
